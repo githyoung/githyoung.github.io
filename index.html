@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="dark" data-palette="forest">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101a18" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('james-resume-theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+        const savedPalette = localStorage.getItem('james-resume-palette');
+        if (['forest','midnight','amber'].includes(savedPalette)) document.documentElement.dataset.palette = savedPalette;
+      } catch {}
+      const previewUrl = new URL(location.href);
+      const previewPalette = previewUrl.searchParams.get('palette');
+      if (['forest','midnight','amber'].includes(previewPalette)) {
+        document.documentElement.dataset.palette = previewPalette;
+        document.documentElement.dataset.theme = 'dark';
+      }
+      document.documentElement.style.colorScheme = document.documentElement.dataset.theme;
+      const paletteColors = { forest:'#101a18', midnight:'#101725', amber:'#1b1713' };
+      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'light' ? '#f4f3ed' : paletteColors[document.documentElement.dataset.palette];
+    </script>
+    <meta name="description" content="James 詹志揚的互動履歷：從 Web 產品開發到半導體 EDA 分析工具與 AI Edge 平台整合。" />
+    <meta property="og:title" content="James 詹志揚 — Full-Stack Technical Lead" />
+    <meta property="og:description" content="Full-Stack Technical Lead · EDA / Data Visualization / AI Edge" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>James 詹志揚 — EDA · Full Stack · AI Edge</title>
+    <script type="module" crossorigin src="./assets/index-JBhbRhuN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D3XzKU3w.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript>請啟用 JavaScript 閱讀 James 詹志揚的履歷。聯絡方式：<a href="mailto:githyoung@gmail.com">githyoung@gmail.com</a>。</noscript>
+  </body>
+</html>
